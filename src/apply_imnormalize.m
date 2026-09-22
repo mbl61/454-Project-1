@@ -1,4 +1,4 @@
-function [outarray] = apply_imnormalize(inarray)
+function outarray = apply_imnormalize(inarray)
 
 %inarray is an NxMx3 uint8 image and outarray is NxMx3
 

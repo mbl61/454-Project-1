@@ -2,9 +2,35 @@ function main()
 
 % load dataset
 
+%loading this file defines imageset, trueclass, and classlabels
+load '../Project1DataFiles/cifar10testdata.mat'
+%some sample code to read and display one image from each class
+
+for classindex = 1:10
+    %get indices of all images of that class
+    inds = find(trueclass==classindex);
+
+    %take first one
+    imrgb = imageset(:,:,:,inds(1));
+
+    %display it along with ground truth text label
+    figure; 
+    imagesc(imrgb); 
+    truesize(gcf,[64 64]);
+    title(sprintf('\%s',classlabels{classindex}));
+end
+
 % create model
 
+predictedclass = zeros(size(imageset,4),1); % initialize predicted class array
+
 % run test
+
+for i = 1: size(imageset,4)
+    img = imageset(:,:,:,i);
+    outarray = layers(img);
+    [~,predictedclass(i)] = max(outarray,[],3);
+end
 
 % evaluate result
 

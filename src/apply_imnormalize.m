@@ -4,9 +4,9 @@ function outarray = apply_imnormalize(inarray)
 
 % CIFAR-10 mean and std
 
-mean_val = [0.4914, 0.4822, 0.4465];
+mean_val = reshape([0.4914, 0.4822, 0.4465], [1, 1, 3]);
 
-std_val = [0.2470, 0.2435, 0.2616];
+std_val = reshape([0.2470, 0.2435, 0.2616], [1, 1, 3]);
 
 % Normalize the input image
 

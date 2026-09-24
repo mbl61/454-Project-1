@@ -30,3 +30,18 @@ Confusion Matrix:
 
 Classification Accuracy: 61.56%
 ```
+
+## Expected Top-k Accuracy
+
+```
+Top-1 accuracy: 61.56%
+Top-2 accuracy: 80.31%
+Top-3 accuracy: 88.84%
+Top-4 accuracy: 93.45%
+Top-5 accuracy: 96.25%
+Top-6 accuracy: 97.93%
+Top-7 accuracy: 98.93%
+Top-8 accuracy: 99.45%
+Top-9 accuracy: 99.83%
+Top-10 accuracy: 100.00%
+```

@@ -12,6 +12,11 @@ cd src\
 main_topk
 ```
 
+```{matlab}
+cd src\
+debug
+```
+
 
 ## Expected Output
 

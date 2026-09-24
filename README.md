@@ -50,3 +50,7 @@ Top-8 accuracy: 99.45%
 Top-9 accuracy: 99.83%
 Top-10 accuracy: 100.00%
 ```
+
+## Normalize to Convolution layer:
+
+See `.\normalize_to_conv.pdf`

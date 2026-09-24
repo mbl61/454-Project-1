@@ -34,4 +34,18 @@ end
 
 % evaluate result
 
+conf_matrix = zeros(10, 10);
+
+for i = 1:length(trueclass)
+    actual = trueclass(i);
+    predicted = predictedclass(i);
+    conf_matrix(actual, predicted) = conf_matrix(actual, predicted) + 1;
+end
+
+disp("Confusion Matrix:");
+disp(conf_matrix);
+
+acc = sum(diag(conf_matrix)) / sum(conf_matrix(:));
+fprintf("Classification Accuracy: %.2f%%\n", acc * 100);
+
 end

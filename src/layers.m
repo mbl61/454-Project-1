@@ -25,9 +25,9 @@ outarray = inarray; % initialize output array
 outarray = apply_imnormalize(outarray); % normalize input image
 
 for i = 1:3
-    outarray = apply_conv(outarray, filterbanks{2 * i}, biasvectors{2 * i}); % input N*M*D1, filterbank N*M*D1*D2, biasvals length D2, output N*M*D2
+    outarray = apply_convolve(outarray, filterbanks{2 * i}, biasvectors{2 * i}); % input N*M*D1, filterbank N*M*D1*D2, biasvals length D2, output N*M*D2
     outarray = apply_relu(outarray); % apply ReLU
-    outarray = apply_conv(outarray, filterbanks{2 * i + 1}, biasvectors{2 * i + 1}); % input N*M*D1, filterbank N*M*D1*D2, biasvals length D2, output N*M*D2
+    outarray = apply_convolve(outarray, filterbanks{2 * i + 1}, biasvectors{2 * i + 1}); % input N*M*D1, filterbank N*M*D1*D2, biasvals length D2, output N*M*D2
     outarray = apply_relu(outarray); % apply ReLU
     outarray = apply_maxpool(outarray); % halve the size of the image
 end

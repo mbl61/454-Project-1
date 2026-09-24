@@ -30,6 +30,8 @@ end
 disp("Confusion Matrix:");
 disp(conf_matrix);
 
+show_confusion(conf_matrix, imageset, trueclass, classlabels);
+
 acc = sum(diag(conf_matrix)) / sum(conf_matrix(:));
 fprintf("Classification Accuracy: %.2f%%\n", acc * 100);
 

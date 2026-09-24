@@ -4,7 +4,7 @@ function debug()
 load '../Project1DataFiles/debuggingTest.mat'
 
 
-outarray = layers(imrgb);
+outarray = layers(imrgb, true);
 
 err = max(abs(double(outarray(:)) - double(layerResults{18}(:))));
 

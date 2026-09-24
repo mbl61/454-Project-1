@@ -1,4 +1,4 @@
-function outarray = layers(inarray)
+function outarray = layers(inarray, testmode)
 
 % import the filterbank and biasvals for each layer
 
@@ -15,6 +15,9 @@ for i = 1:3
     outarray = apply_convolve(outarray, filterbanks{5 * i - 1}, biasvectors{5 * i - 1}); % input N*M*D1, filterbank N*M*D1*D2, biasvals length D2, output N*M*D2
     outarray = apply_relu(outarray); % apply ReLU
     outarray = apply_maxpool(outarray); % halve the size of the image
+    if testmode
+        greyscale(outarray); % one grayscale image per feature map
+    end
 end
 
 outarray = apply_fullconnect(outarray, filterbanks{17}, biasvectors{17}); % fully connect layer

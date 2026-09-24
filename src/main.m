@@ -13,7 +13,7 @@ predictedclass = zeros(size(imageset,4),1); % initialize predicted class array
 
 for i = 1: size(imageset,4)
     img = imageset(:,:,:,i);
-    outarray = layers(img);
+    outarray = layers(img, false);
     [~,predictedclass(i)] = max(outarray,[],3);
 end
 

@@ -14,7 +14,7 @@ scores = zeros(size(imageset,4), 10);      % probability score of each class
 
 for i = 1: size(imageset,4)
     img = imageset(:,:,:,i);
-    outarray = layers(img);
+    outarray = layers(img, false);
     scores(i,:) = outarray(:)';             % 1x10 probability vector of this image
     [~,predictedclass(i)] = max(outarray,[],3);
 end

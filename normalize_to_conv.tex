@@ -1,0 +1,53 @@
+\documentclass{article}
+\usepackage{amsmath,amssymb}
+
+\begin{document}
+
+Image Normalization we implemented is as follows:
+\begin{align*}
+    Tmp(i,j,k) &= \frac{In(i,j,k)}{255}\\
+    Out(i,j,k) &= \frac{Tmp(i,j,k) - \mu_k}{\sigma_k}
+\end{align*}
+
+And we want to turn it into shaped like:
+\[
+w \cdot In + b = Out
+\]
+, where $w$ and $b$ are the weights and bias of a convolutional layer.
+
+We can rewrite the normalization equation as:
+\begin{align*}
+    Out(i,j,k) &= \frac{\frac{In(i,j,k)}{255} - \mu_k}{\sigma_k}\\
+    Out(i,j,k) &= \frac{1}{\sigma_k}\left(\frac{In(i,j,k)}{255} - \mu_k\right)\\
+    Out(i,j,k) &= \frac{1}{255 \cdot \sigma_k}In(i,j,k) - \frac{\mu_k}{\sigma_k}\\
+\end{align*}
+
+So we can see that the weights and bias of the convolutional layer are:
+\begin{align*}
+    w &= \frac{1}{255 \cdot \sigma_k}\\
+    b &= -\frac{\mu_k}{\sigma_k}
+\end{align*}
+
+Then we put value in it:
+\begin{align*}
+    \mu = \begin{pmatrix}
+        0.4914 & 0.4822 & 0.4465
+    \end{pmatrix}\\
+    \sigma = \begin{pmatrix}
+        0.2470 & 0.2435 & 0.2616
+    \end{pmatrix}
+\end{align*}
+
+The final weights and bias are:
+\begin{align*}
+    w &= \begin{pmatrix}
+        0.0159 & 0.0161 & 0.0150
+    \end{pmatrix}\\
+    b &= \begin{pmatrix}
+        -1.9895 & -1.9803 & -1.7068
+    \end{pmatrix}
+\end{align*}
+
+Since the kernel is $1 \times 1$ and the channel of output is 3, the size of weight is $1 \times 1 \times 3 \times 3$, and size of bias is $1 \times 1 \times 3$.
+
+\end{document}
